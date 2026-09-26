@@ -34,7 +34,7 @@ export default function PasswordField({ label, value, onChange, error, showStren
               style={{ width: `${strength.percent}%` }}
             />
           </div>
-          <span className="small text-muted">{strength.label} password</span>
+          <span className="strength-label">{strength.label} password</span>
         </div>
       )}
     </div>

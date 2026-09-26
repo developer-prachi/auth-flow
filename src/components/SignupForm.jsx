@@ -20,9 +20,15 @@ export default function SignupForm({ onSignup, onSwitchToLogin }) {
   }
 
   return (
-    <div className="card shadow-sm p-4" style={{ maxWidth: '420px', width: '100%' }}>
-      <h1 className="h4 mb-1">Create an account</h1>
-      <p className="text-muted mb-4">No real backend - this just demonstrates the form and its validation.</p>
+    <div className="card shadow-sm auth-card">
+      <p className="eyebrow">Sign up</p>
+      <h1 className="auth-card__title">
+        Create an <em className="accent-em">account</em>
+      </h1>
+      <p className="auth-card__note mb-4">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
+        <span>No real backend - this just demonstrates the form and its validation.</span>
+      </p>
 
       <form onSubmit={handleSubmit} noValidate>
         <div className="mb-3">
@@ -67,7 +73,7 @@ export default function SignupForm({ onSignup, onSwitchToLogin }) {
         </button>
       </form>
 
-      <p className="text-center text-muted mt-3 mb-0">
+      <p className="text-center text-muted auth-switch mt-3 mb-0">
         Already have an account?{' '}
         <button type="button" className="btn btn-link p-0" onClick={onSwitchToLogin}>
           Log in

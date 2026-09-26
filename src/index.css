@@ -1,20 +1,51 @@
-body {
-  background: #f4f6f8;
-  min-height: 100vh;
+.app-shell {
+  min-height: calc(100vh - 150px);
+  padding: 40px 16px 8px;
 }
 
-.app-shell {
-  min-height: 100vh;
+.auth-card {
+  max-width: 440px;
+  width: 100%;
+  padding: clamp(24px, 5vw, 38px) !important;
 }
+.auth-card__title { font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.2rem); margin-bottom: 0.4rem; }
+.auth-card__note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg-2);
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+.auth-card__note svg { flex: none; width: 16px; height: 16px; margin-top: 2px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.auth-switch { font-size: 0.92rem; }
 
 .strength-bar {
   height: 6px;
   border-radius: 999px;
-  background: #e2e6ea;
+  background: var(--bg-2);
   overflow: hidden;
 }
-
 .strength-bar__fill {
   height: 100%;
+  border-radius: 999px;
   transition: width 200ms ease, background 200ms ease;
+}
+.strength-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b4376f, #e27a4f);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-style: italic;
+  box-shadow: 0 14px 28px -14px #b4376f;
 }

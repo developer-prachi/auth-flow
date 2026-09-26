@@ -18,8 +18,11 @@ export default function LoginForm({ onLogin, onSwitchToSignup, loginError }) {
   }
 
   return (
-    <div className="card shadow-sm p-4" style={{ maxWidth: '420px', width: '100%' }}>
-      <h1 className="h4 mb-1">Log in</h1>
+    <div className="card shadow-sm auth-card">
+      <p className="eyebrow">Log in</p>
+      <h1 className="auth-card__title">
+        Welcome <em className="accent-em">back</em>
+      </h1>
       <p className="text-muted mb-4">Use the email and password you signed up with.</p>
 
       <form onSubmit={handleSubmit} noValidate>
@@ -48,7 +51,7 @@ export default function LoginForm({ onLogin, onSwitchToSignup, loginError }) {
         </button>
       </form>
 
-      <p className="text-center text-muted mt-3 mb-0">
+      <p className="text-center text-muted auth-switch mt-3 mb-0">
         Don&apos;t have an account?{' '}
         <button type="button" className="btn btn-link p-0" onClick={onSwitchToSignup}>
           Sign up

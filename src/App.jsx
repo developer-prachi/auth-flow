@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
+import { SiteBar, SiteFooter } from './components/SiteChrome';
 import { saveUser, findUserByEmail, saveSession, getSession, clearSession } from './utils/auth';
 
 // view: 'signup' | 'login' | 'dashboard'
@@ -50,22 +51,26 @@ export default function App() {
   }
 
   return (
-    <div className="app-shell d-flex align-items-center justify-content-center p-3">
-      {view === 'signup' && (
-        <SignupForm onSignup={handleSignup} onSwitchToLogin={() => setView('login')} />
-      )}
+    <>
+      <SiteBar title="Auth Flow" />
+      <main className="app-shell d-flex align-items-center justify-content-center">
+        {view === 'signup' && (
+          <SignupForm onSignup={handleSignup} onSwitchToLogin={() => setView('login')} />
+        )}
 
-      {view === 'login' && (
-        <LoginForm
-          onLogin={handleLogin}
-          onSwitchToSignup={() => setView('signup')}
-          loginError={loginError}
-        />
-      )}
+        {view === 'login' && (
+          <LoginForm
+            onLogin={handleLogin}
+            onSwitchToSignup={() => setView('signup')}
+            loginError={loginError}
+          />
+        )}
 
-      {view === 'dashboard' && currentUser && (
-        <Dashboard user={currentUser} onLogout={handleLogout} />
-      )}
-    </div>
+        {view === 'dashboard' && currentUser && (
+          <Dashboard user={currentUser} onLogout={handleLogout} />
+        )}
+      </main>
+      <SiteFooter repo="auth-flow" />
+    </>
   );
 }
